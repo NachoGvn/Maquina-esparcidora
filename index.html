@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equilimpia | Innovación en Gestión de Residuos Orgánicos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Librería para animaciones al hacer scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Eliminamos scroll-behavior: smooth de CSS para manejarlo con JS para mayor control de velocidad */
+            overflow-x: hidden;
+        }
+
+        /* Overlay dinámico */
+        .gradient-overlay {
+            background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.7) 100%);
+        }
+
+        /* Efecto de elevación en tarjetas */
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .card-hover:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(39, 174, 96, 0.15);
+        }
+
+        .bg-eco { background-color: #27AE60; } 
+        .text-eco { color: #27AE60; }
+        .border-eco { border-color: #27AE60; }
+
+        /* Animación de brillo en botones */
+        .btn-shine {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-shine::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: rotate(45deg);
+            transition: 0.5s;
+        }
+        .btn-shine:hover::after {
+            left: 100%;
+        }
+
+        /* Hero zoom effect */
+        .hero-zoom {
+            animation: slowZoom 20s infinite alternate;
+        }
+        @keyframes slowZoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        /* Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- Navegación -->
+    <nav class="fixed w-full z-50 glass shadow-sm border-b border-gray-100 transition-all duration-300" id="mainNav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center group cursor-pointer">
+                    <span class="text-2xl font-extrabold tracking-tighter text-eco group-hover:scale-105 transition-transform">EQUI<span class="text-gray-800">LIMPIA</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#inicio" class="nav-link text-gray-600 hover:text-eco font-medium transition relative group">
+                        Inicio
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-eco transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#problema" class="nav-link text-gray-600 hover:text-eco font-medium transition relative group">
+                        Por qué cambiar
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-eco transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#solucion" class="nav-link text-gray-600 hover:text-eco font-medium transition relative group">
+                        La Tecnología
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-eco transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#beneficios" class="nav-link text-gray-600 hover:text-eco font-medium transition relative group">
+                        Beneficios
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-eco transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#contacto" class="nav-link bg-eco text-white px-6 py-2 rounded-full font-bold hover:bg-green-700 transition shadow-md btn-shine">Solicitar Demo</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-gray-600 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative h-screen flex items-center justify-center overflow-hidden bg-gray-900">
+        <div class="absolute inset-0 z-0">
+            <img 
+                src="https://i.ibb.co/bMsLL6hn/equilimpia-maquina-1920x1080.jpg" 
+                alt="[Imagen de la maquinaria Equilimpia en funcionamiento]" 
+                class="w-full h-full object-cover object-center hero-zoom"
+            >
+            <div class="absolute inset-0 gradient-overlay"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-5xl mx-auto px-4 text-center text-white">
+            <div data-aos="fade-down" data-aos-duration="1000">
+                <span class="inline-block bg-eco text-white px-4 py-1 rounded-full text-sm font-bold mb-6 tracking-wide shadow-lg">TECNOLOGÍA REVOLUCIONARIA</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight hero-title" data-aos="fade-up" data-aos-delay="200">
+                Transforma horas de trabajo manual en <span class="text-eco">minutos de eficiencia inteligente</span>
+            </h1>
+            <p class="text-lg md:text-2xl mb-10 text-gray-100 max-w-3xl mx-auto leading-relaxed font-medium" data-aos="fade-up" data-aos-delay="400">
+                Elimine el levantado manual de residuos. Nuestra succión por turbina optimiza sus recursos y revoluciona la gestión de suelos.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="zoom-in" data-aos-delay="600">
+                <a href="#contacto" class="nav-link bg-eco text-white px-10 py-4 rounded-full text-lg font-bold hover:scale-105 transition transform shadow-2xl btn-shine">
+                    Quiero más información
+                </a>
+                <a href="#solucion" class="nav-link bg-white/10 backdrop-blur-md border border-white/40 text-white px-10 py-4 rounded-full text-lg font-bold hover:bg-white/20 transition">
+                    Ver tecnología de succión
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white/50 animate-bounce cursor-pointer">
+            <a href="#problema" class="nav-link"><i class="fas fa-chevron-down text-2xl"></i></a>
+        </div>
+    </section>
+
+    <!-- Problema vs Solución -->
+    <section id="problema" class="py-24 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="order-2 md:order-1" data-aos="fade-right">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6 italic">¿Sigue gestionando sus residuos como hace 50 años?</h2>
+                    <ul class="space-y-6 mb-8">
+                        <li class="flex items-start group">
+                            <div class="mt-1 flex-shrink-0 transition-transform group-hover:scale-125">
+                                <i class="fas fa-times-circle text-red-500 text-xl"></i>
+                            </div>
+                            <p class="ml-4 text-gray-600 text-lg"><strong>Esfuerzo físico agotador:</strong> El levantado manual causa lesiones y fatiga extrema en el personal.</p>
+                        </li>
+                        <li class="flex items-start group">
+                            <div class="mt-1 flex-shrink-0 transition-transform group-hover:scale-125">
+                                <i class="fas fa-times-circle text-red-500 text-xl"></i>
+                            </div>
+                            <p class="ml-4 text-gray-600 text-lg"><strong>Costos de tiempo masivos:</strong> Tareas que requieren días enteros de trabajo manual interrumpido.</p>
+                        </li>
+                        <li class="flex items-start group">
+                            <div class="mt-1 flex-shrink-0 transition-transform group-hover:scale-125">
+                                <i class="fas fa-times-circle text-red-500 text-xl"></i>
+                            </div>
+                            <p class="ml-4 text-gray-600 text-lg"><strong>Inconsistencia operativa:</strong> Distribución irregular de residuos que afecta la calidad del suelo.</p>
+                        </li>
+                    </ul>
+                    <div class="p-8 bg-red-50 rounded-3xl border-l-8 border-red-500 shadow-sm transform transition hover:scale-105">
+                        <p class="text-red-700 font-bold italic text-lg">"El levantado manual no es solo lento; es el cuello de botella de su productividad."</p>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2" data-aos="fade-left">
+                    <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-gray-200 group">
+                        <!-- Imagen actualizada con la URL proporcionada -->
+                        <img src="https://i.ibb.co/Kjvm4Qvx/stud-trabajadores-1080x1350.webp" alt="[Trabajadores realizando gestión manual de residuos]" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute bottom-8 left-8 right-8 bg-white/90 backdrop-blur-md p-8 rounded-2xl shadow-xl border-t-4 border-eco transform transition group-hover:-translate-y-2">
+                            <h3 class="text-eco font-bold text-2xl mb-2">La Solución Equilimpia</h3>
+                            <p class="text-gray-700">Diseñamos tecnología que integra <strong>succión por turbina</strong> y esparcido en una sola unidad móvil de alto rendimiento.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beneficios Estratégicos -->
+    <section id="beneficios" class="py-24 bg-green-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-eco font-bold uppercase tracking-widest text-sm">MAXIMICE SU RENDIMIENTO</span>
+                <h2 class="text-4xl font-extrabold mt-4 text-gray-900">Beneficios de Impacto Inmediato</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="bg-white p-10 rounded-3xl border border-green-100 card-hover shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-eco rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-green-200">
+                        <i class="fas fa-clock text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Ahorro de Tiempo</h3>
+                    <p class="text-gray-600 leading-relaxed text-lg">Reduzca tiempos de operación en un 75%. Lo que antes tomaba una semana, Equilimpia lo resuelve en una jornada.</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl border border-green-100 card-hover shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-eco rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-green-200">
+                        <i class="fas fa-users-slash text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Eficiencia Laboral</h3>
+                    <p class="text-gray-600 leading-relaxed text-lg">Un solo operador maneja todo el proceso. Libere a su personal para tareas estratégicas de mayor valor.</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl border border-green-100 card-hover shadow-sm" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-eco rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-green-200">
+                        <i class="fas fa-chart-line text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Retorno de Inversión</h3>
+                    <p class="text-gray-600 leading-relaxed text-lg">Menos horas-hombre y mayor rapidez operativa significan una amortización acelerada del equipo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cómo Funciona -->
+    <section id="solucion" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="zoom-in">
+                <h2 class="text-4xl font-extrabold text-gray-900">Operación en 3 Pasos</h2>
+                <p class="text-gray-600 mt-4 text-xl">Sin complicaciones, sin levantado manual.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-16 relative">
+                <div class="hidden lg:block absolute top-12 left-[15%] right-[15%] h-1 bg-eco/20 z-0"></div>
+                
+                <div class="relative z-10 text-center group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-24 h-24 bg-white border-4 border-eco text-eco rounded-full flex items-center justify-center mx-auto mb-8 text-3xl font-black shadow-xl transition-all duration-500 group-hover:bg-eco group-hover:text-white group-hover:scale-110">1</div>
+                    <h3 class="font-bold text-2xl mb-4 group-hover:text-eco transition-colors">Succión</h3>
+                    <p class="text-gray-600 text-lg">El sistema de turbina aspira los residuos orgánicos mediante una manguera de alto rendimiento.</p>
+                </div>
+
+                <div class="relative z-10 text-center group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-24 h-24 bg-white border-4 border-eco text-eco rounded-full flex items-center justify-center mx-auto mb-8 text-3xl font-black shadow-xl transition-all duration-500 group-hover:bg-eco group-hover:text-white group-hover:scale-110">2</div>
+                    <h3 class="font-bold text-2xl mb-4 group-hover:text-eco transition-colors">Transporte</h3>
+                    <p class="text-gray-600 text-lg">El material se almacena y transporta automáticamente sin derrames ni manipulación manual.</p>
+                </div>
+
+                <div class="relative z-10 text-center group" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-24 h-24 bg-white border-4 border-eco text-eco rounded-full flex items-center justify-center mx-auto mb-8 text-3xl font-black shadow-xl transition-all duration-500 group-hover:bg-eco group-hover:text-white group-hover:scale-110">3</div>
+                    <h3 class="font-bold text-2xl mb-4 group-hover:text-eco transition-colors">Esparcido</h3>
+                    <p class="text-gray-600 text-lg">La misma máquina distribuye los residuos de forma uniforme sobre el terreno de manera técnica.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulario de Contacto -->
+    <section id="contacto" class="py-24 bg-eco overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-[3rem] overflow-hidden shadow-2xl flex flex-col lg:flex-row border-4 border-white/20" data-aos="zoom-in-up">
+                <div class="lg:w-1/2 p-16 bg-green-50 flex flex-col justify-center">
+                    <h2 class="text-4xl font-extrabold mb-6 text-gray-900">Solicite una Demo en Campo</h2>
+                    <p class="text-gray-600 mb-10 text-xl leading-relaxed">Vea la tecnología Equilimpia en acción. Compruebe cómo reducimos el esfuerzo físico y multiplicamos la eficiencia.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center group cursor-pointer">
+                            <div class="w-12 h-12 bg-eco rounded-full flex items-center justify-center mr-6 group-hover:rotate-12 transition text-white shadow-md">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <span class="text-xl font-bold text-gray-800 group-hover:text-eco transition">+1 234 567 890</span>
+                        </div>
+                        <div class="flex items-center group cursor-pointer">
+                            <div class="w-12 h-12 bg-eco rounded-full flex items-center justify-center mr-6 group-hover:-rotate-12 transition text-white shadow-md">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <span class="text-xl font-bold text-gray-800 group-hover:text-eco transition">ventas@equilimpia.com</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 p-16 bg-white">
+                    <form onsubmit="event.preventDefault(); showSuccess();" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="transform transition focus-within:-translate-y-1">
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Nombre</label>
+                                <input type="text" class="w-full px-5 py-4 rounded-2xl border-2 border-green-50 focus:border-eco outline-none transition bg-gray-50 focus:bg-white" placeholder="Su nombre" required>
+                            </div>
+                            <div class="transform transition focus-within:-translate-y-1">
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Empresa</label>
+                                <input type="text" class="w-full px-5 py-4 rounded-2xl border-2 border-green-50 focus:border-eco outline-none transition bg-gray-50 focus:bg-white" placeholder="Su finca/empresa" required>
+                            </div>
+                        </div>
+                        <div class="transform transition focus-within:-translate-y-1">
+                            <label class="block text-sm font-bold text-gray-700 mb-2">Email</label>
+                            <input type="email" class="w-full px-5 py-4 rounded-2xl border-2 border-green-50 focus:border-eco outline-none transition bg-gray-50 focus:bg-white" placeholder="correo@empresa.com" required>
+                        </div>
+                        <div class="transform transition focus-within:-translate-y-1">
+                            <label class="block text-sm font-bold text-gray-700 mb-2">Mensaje</label>
+                            <textarea rows="4" class="w-full px-5 py-4 rounded-2xl border-2 border-green-50 focus:border-eco outline-none transition bg-gray-50 focus:bg-white" placeholder="¿Cómo podemos ayudarle?"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-eco text-white py-5 rounded-2xl font-bold text-xl hover:bg-green-700 transition shadow-xl transform hover:-translate-y-1 btn-shine shadow-green-200 active:scale-95">
+                            Enviar Solicitud
+                        </button>
+                        <p id="success-msg" class="hidden text-eco text-center font-bold mt-4">
+                            <i class="fas fa-check-circle mr-2"></i> ¡Solicitud enviada! Nos pondremos en contacto pronto.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+            <div class="grid md:grid-cols-3 gap-12 items-start">
+                <div data-aos="fade-up">
+                    <span class="text-3xl font-black tracking-tighter text-eco">EQUI<span class="text-gray-800">LIMPIA</span></span>
+                    <p class="mt-6 text-gray-500 text-lg leading-relaxed">
+                        Líderes en mecanización inteligente de residuos orgánicos. Innovación diseñada para el futuro del campo.
+                    </p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <h4 class="font-bold text-gray-900 mb-6 text-lg">Explorar</h4>
+                    <ul class="space-y-4 text-gray-600">
+                        <li><a href="#inicio" class="nav-link hover:text-eco transition">Inicio</a></li>
+                        <li><a href="#solucion" class="nav-link hover:text-eco transition">Tecnología</a></li>
+                        <li><a href="#beneficios" class="nav-link hover:text-eco transition">Beneficios</a></li>
+                    </ul>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <h4 class="font-bold text-gray-900 mb-6 text-lg">Síguenos</h4>
+                    <div class="flex space-x-6 justify-center md:justify-start">
+                        <a href="#" class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-gray-400 hover:text-eco hover:shadow-lg transition transform hover:-translate-y-1"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-gray-400 hover:text-eco hover:shadow-lg transition transform hover:-translate-y-1"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-gray-400 hover:text-eco hover:shadow-lg transition transform hover:-translate-y-1"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-16 pt-8 border-t border-gray-200 text-center text-gray-400 font-medium">
+                &copy; 2025 Equilimpia. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts para efectos -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Inicializar animaciones de scroll
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Efecto en la barra de navegación al hacer scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2', 'shadow-md');
+                nav.classList.remove('py-0');
+            } else {
+                nav.classList.remove('py-2', 'shadow-md');
+            }
+        });
+
+        // NAVEGACIÓN SUAVE PERSONALIZADA (Smooth Scroll)
+        document.querySelectorAll('.nav-link').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                
+                // Solo aplicar si es un enlace interno (comienza con #)
+                if (targetId.startsWith('#')) {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        // Calculamos la posición compensando la altura de la barra de navegación (80px)
+                        const navHeight = 80;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                        
+                        // Usamos window.scrollTo con comportamiento suave
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Función para el mensaje de éxito del formulario
+        function showSuccess() {
+            const msg = document.getElementById('success-msg');
+            msg.classList.remove('hidden');
+            msg.classList.add('animate-bounce');
+        }
+    </script>
+</body>
+</html>
