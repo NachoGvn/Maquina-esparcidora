@@ -13,6 +13,7 @@
         body {
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         /* Estilo del Logo Bitono */
@@ -77,6 +78,18 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
         }
+
+        /* Efecto Suave para Menú Móvil */
+        #mobile-menu {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
+        }
+        #mobile-menu.active {
+            max-height: 500px;
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
@@ -111,13 +124,13 @@
         </div>
 
         <!-- Mobile Menu Container -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 animate-fade-in-down">
-            <div class="px-4 pt-2 pb-6 space-y-1 sm:px-3">
+        <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-100">
+            <div class="px-4 pt-2 pb-6 space-y-1 sm:px-3 text-center">
                 <a href="#inicio" class="mobile-nav-link block px-3 py-4 text-base font-bold text-gray-700 border-b border-gray-50 hover:text-eco transition">Inicio</a>
                 <a href="#solucion" class="mobile-nav-link block px-3 py-4 text-base font-bold text-gray-700 border-b border-gray-50 hover:text-eco transition">La Solución</a>
                 <a href="#aplicaciones" class="mobile-nav-link block px-3 py-4 text-base font-bold text-gray-700 border-b border-gray-50 hover:text-eco transition">Aplicaciones</a>
                 <a href="#beneficios" class="mobile-nav-link block px-3 py-4 text-base font-bold text-gray-700 border-b border-gray-50 hover:text-eco transition">Ventajas</a>
-                <a href="#contacto" class="mobile-nav-link block px-3 py-5 text-center bg-eco text-white rounded-2xl font-black mt-4 btn-shine">CONSULTAR PARA MI STUD</a>
+                <a href="#contacto" class="mobile-nav-link block px-3 py-5 text-center bg-eco text-white rounded-2xl font-black mt-4 btn-shine shadow-lg">CONSULTAR PARA MI STUD</a>
             </div>
         </div>
     </nav>
@@ -143,14 +156,14 @@
             </h1>
             
             <p class="text-xl md:text-2xl mb-12 text-gray-100 max-w-3xl mx-auto leading-relaxed font-light" data-aos="fade-up" data-aos-delay="400">
-                La solución definitiva para la <strong>limpieza de camas de los caballos</strong> y el mantenimiento de pistas. Transforme los residuos orgánicos en <strong>abono de alta calidad</strong> para nutrir sus canchas y campos.
+                La solución definitiva para la <strong>limpieza de camas de los caballos</strong> y el mantenimiento de pistas. Transforme los residuos orgánicos en <strong>abono de alta calidad</strong>.
             </p>
             
             <div class="flex flex-col sm:flex-row justify-center gap-6" data-aos="zoom-in" data-aos-delay="600">
-                <a href="#contacto" class="nav-link bg-eco text-white px-12 py-5 rounded-full text-lg font-bold hover:scale-105 transition transform shadow-2xl btn-shine">
+                <a href="#contacto" class="nav-link bg-eco text-white px-12 py-5 rounded-full text-lg font-bold hover:scale-105 transition transform shadow-2xl btn-shine active:scale-95">
                     Optimizar mi campo
                 </a>
-                <a href="#solucion" class="nav-link bg-white/10 backdrop-blur-md border border-white/40 text-white px-12 py-5 rounded-full text-lg font-bold hover:bg-white/20 transition">
+                <a href="#solucion" class="nav-link bg-white/10 backdrop-blur-md border border-white/40 text-white px-12 py-5 rounded-full text-lg font-bold hover:bg-white/20 transition active:scale-95">
                     Ver cómo funciona
                 </a>
             </div>
@@ -161,7 +174,7 @@
     <section id="abono" class="py-24 bg-white overflow-hidden border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div data-aos="fade-right">
+                <div data-aos="fade-right" class="text-center md:text-left">
                     <h2 class="text-3xl font-bold text-gray-800 mb-6 italic">Nutrición orgánica: El ciclo perfecto para su tierra.</h2>
                     <p class="text-gray-600 text-lg mb-8 leading-relaxed">
                         Además de mantener sus pistas de polo y vareo impecables, nuestra tecnología le permite aprovechar la materia orgánica de las camas para **esparcirla por el campo como abono orgánico**. 
@@ -175,7 +188,7 @@
                     <img 
                         src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=1000" 
                         alt="[Campo verde nutrido con abono orgánico]" 
-                        class="relative rounded-[2.5rem] shadow-2xl image-float"
+                        class="relative rounded-[2.5rem] shadow-2xl image-float w-full"
                     >
                 </div>
             </div>
@@ -192,17 +205,17 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-eco/50 transition-all duration-500 group card-hover" data-aos="fade-up" data-aos-delay="100">
+                <div class="p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-eco/50 transition-all duration-500 group card-hover text-center md:text-left" data-aos="fade-up" data-aos-delay="100">
                     <i class="fas fa-horse-head text-4xl text-eco mb-6 transition-transform group-hover:scale-110"></i>
                     <h3 class="text-2xl font-bold mb-4">Studs y Haras</h3>
                     <p class="text-gray-400">Limpieza profunda de camas. Succión eficiente de residuos orgánicos manteniendo la higiene total del box y el bienestar del caballo.</p>
                 </div>
-                <div class="p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-eco/50 transition-all duration-500 group card-hover" data-aos="fade-up" data-aos-delay="200">
+                <div class="p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-eco/50 transition-all duration-500 group card-hover text-center md:text-left" data-aos="fade-up" data-aos-delay="200">
                     <i class="fas fa-leaf text-4xl text-eco mb-6 transition-transform group-hover:scale-110"></i>
                     <h3 class="text-2xl font-bold mb-4">Abonado de Campos</h3>
                     <p class="text-gray-400">Esparcido técnico de materia orgánica. Transforme los residuos en nutrientes para potreros y zonas de pastoreo de forma automática.</p>
                 </div>
-                <div class="p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-eco/50 transition-all duration-500 group card-hover" data-aos="fade-up" data-aos-delay="300">
+                <div class="p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-eco/50 transition-all duration-500 group card-hover text-center md:text-left" data-aos="fade-up" data-aos-delay="300">
                     <i class="fas fa-flag text-4xl text-eco mb-6 transition-transform group-hover:scale-110"></i>
                     <h3 class="text-2xl font-bold mb-4">Canchas de Polo</h3>
                     <p class="text-gray-400">Mantenimiento y recuperación de pistas. Asegure un suelo sano y nivelado para el juego de alto rendimiento.</p>
@@ -211,7 +224,7 @@
         </div>
     </section>
 
-    <!-- Cómo Funciona -->
+    <!-- Cómo Funciona (Sección Solución) -->
     <section id="solucion" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <h2 class="text-4xl font-extrabold text-gray-900 mb-16" data-aos="fade-up">Del Establo al Suelo en 3 Pasos</h2>
@@ -239,37 +252,37 @@
     <section id="beneficios" class="py-24 bg-green-50 relative">
         <div class="max-w-7xl mx-auto px-4">
             <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div data-aos="fade-right">
+                <div data-aos="fade-right" class="text-center md:text-left">
                     <h2 class="text-3xl font-bold text-gray-900 mb-8">Ventajas Competitivas para su Haras</h2>
                     <div class="space-y-6">
-                        <div class="flex p-4 bg-white rounded-2xl shadow-sm border-l-4 border-eco transform transition hover:scale-[1.02]">
+                        <div class="flex p-4 bg-white rounded-2xl shadow-sm border-l-4 border-eco transform transition hover:scale-[1.02] text-left">
                             <i class="fas fa-clock text-eco mt-1 mr-4"></i>
                             <div>
                                 <h4 class="font-bold">Ahorro drástico de tiempo</h4>
                                 <p class="text-gray-600">Optimice la limpieza y dedique más tiempo al entrenamiento y sanidad de los caballos.</p>
                             </div>
                         </div>
-                        <div class="flex p-4 bg-white rounded-2xl shadow-sm border-l-4 border-eco transform transition hover:scale-[1.02]">
+                        <div class="flex p-4 bg-white rounded-2xl shadow-sm border-l-4 border-eco transform transition hover:scale-[1.02] text-left">
+                            <i class="fas fa-bug-slash text-eco mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="font-bold">Prevención de Plagas y Sanidad</h4>
+                                <p class="text-gray-600">Al retirar los desechos de forma rápida y hermética, reducimos drásticamente la proliferación de moscas y bacterias en los boxes.</p>
+                            </div>
+                        </div>
+                        <div class="flex p-4 bg-white rounded-2xl shadow-sm border-l-4 border-eco transform transition hover:scale-[1.02] text-left">
                             <i class="fas fa-recycle text-eco mt-1 mr-4"></i>
                             <div>
                                 <h4 class="font-bold">Ciclo Orgánico Sustentable</h4>
                                 <p class="text-gray-600">Elimine el desperdicio. Lo que antes era basura ahora es el motor de crecimiento de sus canchas.</p>
                             </div>
                         </div>
-                        <div class="flex p-4 bg-white rounded-2xl shadow-sm border-l-4 border-eco transform transition hover:scale-[1.02]">
-                            <i class="fas fa-hand-holding-heart text-eco mt-1 mr-4"></i>
-                            <div>
-                                <h4 class="font-bold">Sanidad Ambiental</h4>
-                                <p class="text-gray-600">Ambientes más limpios reducen notablemente el riesgo de infecciones y afecciones respiratorias.</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
-                <div data-aos="fade-left" class="bg-eco p-12 rounded-[3rem] text-white shadow-2xl relative overflow-hidden group">
+                <div data-aos="fade-left" class="bg-eco p-12 rounded-[3rem] text-white shadow-2xl relative overflow-hidden group text-center md:text-left">
                     <div class="absolute -top-24 -right-24 w-64 h-64 bg-white/10 rounded-full transition-transform duration-700 group-hover:scale-150"></div>
                     <h3 class="text-3xl font-bold mb-6 relative z-10">"Es una solución práctica, orgánica y pensada para la alta competencia."</h3>
                     <p class="text-green-100 text-lg mb-8 relative z-10">Nutra su campo con la excelencia de Equilimpia.</p>
-                    <a href="#contacto" class="relative z-10 inline-block bg-white text-eco px-8 py-4 rounded-full font-bold hover:bg-green-100 transition shadow-xl btn-shine">Solicitar Información Técnica</a>
+                    <a href="#contacto" class="relative z-10 inline-block bg-white text-eco px-8 py-4 rounded-full font-bold hover:bg-green-100 transition shadow-xl btn-shine nav-link">Solicitar Información Técnica</a>
                 </div>
             </div>
         </div>
@@ -281,13 +294,13 @@
             <h2 class="text-4xl font-black mb-4">Mejore su infraestructura hoy</h2>
             <p class="text-gray-600 mb-12 text-xl">Descubra cómo Equilimpia puede transformar la gestión de su campo.</p>
             
-            <form onsubmit="event.preventDefault(); alert('Solicitud enviada correctamente. Un especialista lo contactará para evaluar su necesidad de abonado y limpieza.');" class="space-y-6 text-left" data-aos="fade-up">
+            <form onsubmit="event.preventDefault(); alert('Solicitud enviada correctamente.');" class="space-y-6 text-left" data-aos="fade-up">
                 <div class="grid md:grid-cols-2 gap-6">
-                    <input type="text" placeholder="Su Nombre" class="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-2xl focus:border-eco focus:bg-white outline-none transition-all" required>
-                    <input type="text" placeholder="Nombre del Stud o Establecimiento" class="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-2xl focus:border-eco focus:bg-white outline-none transition-all">
+                    <input type="text" placeholder="Su Nombre" class="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-2xl focus:border-eco outline-none transition-all" required>
+                    <input type="text" placeholder="Nombre del Establecimiento" class="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-2xl focus:border-eco outline-none transition-all">
                 </div>
-                <input type="email" placeholder="Email de contacto" class="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-2xl focus:border-eco focus:bg-white outline-none transition-all" required>
-                <textarea rows="4" placeholder="Cuéntenos sobre sus necesidades (Ej: Limpieza de camas, nutrición de pistas de polo, esparcido en campo...)" class="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-2xl focus:border-eco focus:bg-white outline-none transition-all"></textarea>
+                <input type="email" placeholder="Email de contacto" class="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-2xl focus:border-eco outline-none transition-all" required>
+                <textarea rows="4" placeholder="Mensaje..." class="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-2xl focus:border-eco outline-none transition-all"></textarea>
                 <button type="submit" class="w-full bg-eco text-white py-5 rounded-2xl font-bold text-xl shadow-xl hover:bg-green-700 transition transform active:scale-95 btn-shine">
                     Enviar Consulta Técnica
                 </button>
@@ -300,7 +313,6 @@
             <span class="text-2xl font-black logo-style">
                 <span>EQUI</span><span>LIMPIA</span>
             </span>
-            <p class="mt-4 text-gray-500 font-medium">Excelencia en Nutrición Orgánica y Sanidad Ecuestre.</p>
             <div class="mt-8 pt-8 border-t border-gray-200 text-gray-400 text-sm">
                 &copy; 2025 Equilimpia. Todos los derechos reservados.
             </div>
@@ -309,63 +321,67 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ 
-            duration: 1000, 
-            once: true,
-            offset: 100
-        });
+        AOS.init({ duration: 1000, once: true });
 
-        // Toggle Menú Móvil
+        // Lógica del Menú Burger
         const menuBtn = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
 
-        menuBtn.addEventListener('click', () => {
-            const isHidden = mobileMenu.classList.contains('hidden');
-            if (isHidden) {
-                mobileMenu.classList.remove('hidden');
+        function toggleMenu(forceClose = false) {
+            const isActive = mobileMenu.classList.contains('active');
+            
+            if (isActive || forceClose) {
+                mobileMenu.classList.remove('active');
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            } else {
+                mobileMenu.classList.add('active');
                 menuIcon.classList.remove('fa-bars');
                 menuIcon.classList.add('fa-times');
-            } else {
-                mobileMenu.classList.add('hidden');
-                menuIcon.classList.remove('fa-times');
-                menuIcon.classList.add('fa-bars');
             }
+        }
+
+        menuBtn.addEventListener('click', () => toggleMenu());
+
+        // Función universal de Scroll Suave
+        const handleSmoothScroll = (e) => {
+            const targetId = e.currentTarget.getAttribute('href');
+            if (targetId && targetId.startsWith('#')) {
+                e.preventDefault();
+                
+                // Si el menú móvil está abierto, cerrarlo
+                if (mobileMenu.classList.contains('active')) {
+                    toggleMenu(true);
+                }
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const offset = 80; // Altura de la navbar
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            }
+        };
+
+        // Aplicar scroll suave a TODOS los enlaces de navegación (Desktop, Mobile y Botones Hero)
+        document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
+            link.addEventListener('click', handleSmoothScroll);
         });
 
-        // Cerrar menú móvil al hacer clic en un enlace
-        document.querySelectorAll('.mobile-nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                menuIcon.classList.remove('fa-times');
-                menuIcon.classList.add('fa-bars');
-            });
-        });
-
-        // Scroll suave y efecto Navbar
+        // Efecto visual en la Navbar al scrollear
         const nav = document.getElementById('mainNav');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
-                nav.classList.add('shadow-lg', 'py-1');
+                nav.classList.add('shadow-lg', 'py-1', 'bg-white/95');
             } else {
-                nav.classList.remove('shadow-lg', 'py-1');
+                nav.classList.remove('shadow-lg', 'py-1', 'bg-white/95');
             }
-        });
-
-        document.querySelectorAll('.nav-link').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const targetId = this.getAttribute('href');
-                if (targetId.startsWith('#')) {
-                    e.preventDefault();
-                    const target = document.querySelector(targetId);
-                    if(target) {
-                        window.scrollTo({
-                            top: target.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                }
-            });
         });
     </script>
 </body>
